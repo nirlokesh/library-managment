@@ -1,20 +1,8 @@
 package com.hexad.repository;
 
-import com.hexad.entity.Library;
+import org.springframework.data.repository.CrudRepository;
 
-public interface LibraryRepository {
-	
-	/**
-	 * Gets all available books with the details.
-	 * @return
-	 */
-
-	Library getLibrary();
-	
-	/**
-	 * Updates the library when the book is borrowed.
-	 * @return
-	 */
-	void borrowBook();
-
+import com.hexad.entity.Book;
+public interface LibraryRepository extends CrudRepository<Book, Integer>  
+{  
 }

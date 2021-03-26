@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexad.entity.Library;
-import com.hexad.repository.LibraryRepository;
+import com.hexad.service.LibraryService;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -14,11 +14,11 @@ import com.hexad.repository.LibraryRepository;
 public class LibraryManagmentController {
 
 	@Autowired
-	private LibraryRepository libraryRepository;
+	private LibraryService libraryService;
 
 	@GetMapping("/library")
 	public Library getLibrary() {
-		return this.libraryRepository.getLibrary();
+		return this.libraryService.getAllBooks();
 	}
 	
 

@@ -1,15 +1,24 @@
 package com.hexad.entity;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-//@Entity
-public class Book {
-	private String id;
+@Entity
+@Table
+public class Book{
+	@Id
+	@Column
+	private Integer id;
+	
+	@Column
 	private String name;
+	
+	@Column
 	private String description;
+	
+	@Column
 	private Integer count;
 	
 	public String getDescription() {
@@ -18,10 +27,10 @@ public class Book {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
