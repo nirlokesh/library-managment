@@ -1,28 +1,33 @@
 package com.hexad.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.hexad.entity.Book;
 import com.hexad.entity.Library;
-import com.hexad.repository.LibraryRepository;
 
+public interface LibraryService {
 
-@Service
-public class LibraryService {
+	/**
+	 * Load library.
+	 *
+	 * @param userName the user name
+	 * @return the library
+	 */
+	Library loadLibrary(String userName);
 	
-	@Autowired
-	private LibraryRepository libraryRepository;
+	/**
+	 * Borrow book.
+	 *
+	 * @param userName the user name
+	 * @param bookId the book id
+	 * @return the library
+	 */
+	Library borrowBook(String userName, Integer bookId);
 	
-	public Library getAllBooks(){
-		List<Book> availableBooks = new ArrayList<>();
-		this.libraryRepository.findAll().forEach(book->availableBooks.add(book));
-		Library library= new Library();
-		library.setBookList(availableBooks);
-		return library;
-	}
-
+	/**
+	 * Submit book.
+	 *
+	 * @param userName the user name
+	 * @param bookId the book id
+	 * @return the library
+	 */
+	Library submitBook(String userName, Integer bookId);
+	
 }

@@ -1,0 +1,24 @@
+  
+  <div class="highlight-card">
+    <span *ngIf="!isListEmpty"><b>Your BorrowList :</b> Click submit to return the book.</span> 
+    <span *ngIf="isListEmpty">Your borrow list in empty.</span> 
+  </div>
+<div class="card-container" fxFlex="100%">
+    <a *ngFor = "let book of bookList" >
+        <mat-card class="book-card" >
+            <mat-card-header>
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>
+                    <h3>{{book.name}}</h3>
+                </mat-card-title>
+
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{book.description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button class="button" mat-button (click)="returnBook(book.id)">Return Book</button>
+            </mat-card-actions>
+        </mat-card>
+    </a>
+</div>
